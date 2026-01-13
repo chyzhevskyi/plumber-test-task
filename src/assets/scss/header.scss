@@ -1,0 +1,140 @@
+body:has(header.scrolled) {
+    padding-top: 80px;
+}
+header {
+    top: -80px;
+    transition: all 0.1s ease;
+    background: radial-gradient(at top, #1e3f72, #091023);
+    &.scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .header-content-wrapper {
+        padding: 0 0 5px;
+        position: relative;
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to right, #486682, #8fa7bf, #ffffff, #b2bac5);
+        }
+    }
+    .header-content {
+        padding: 15px 0;
+    }
+    .logo-block {
+        
+    }
+    .nav-block {
+        .header-nav {
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            .header-nav-item {
+                .dropdown-toggle {
+                    color: #fff;
+                    text-decoration: none;
+                    position: relative;
+                    padding: 0;
+                    &::after {
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        background-image: url('../img/chevron-down.svg');
+                        background-repeat: no-repeat;
+                        background-size: 100% auto;
+                        vertical-align: middle;
+                        border: none;
+                        transition: transform 0.3s ease;
+                    }
+                    &[aria-expanded="true"]::after {
+                        transform: rotate(180deg);
+                    }
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        width: 0;
+                        height: 1px;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-color: #fff;
+                        transition: all 0.3s ease;
+                    }
+                    &:hover::before, &[aria-expanded="true"]::before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .actions-block {
+        gap: 15px;
+        .header-phone-button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0 0 0 35px;
+            position: relative;
+            text-align: center;
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background: url('../img/phone-icon.svg'), linear-gradient(135deg, #0f63ab 0%, #02306e 100%);
+                background-repeat: no-repeat;
+                background-size: 18px, auto;
+                background-position: 50%, 50%;
+                border-radius: 50%;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .text-label {
+                color: #ffffff;
+                font-size: 12px;
+                line-height: 14px;
+                font-weight: 400;
+                margin: 0;
+            }
+            .phone-number {
+                color: #ffffff;
+                font-size: 17px;
+                line-height: 19px;
+                font-weight: 700;
+                margin: 0;
+            }
+        }
+        .header-cta-button {
+            display: inline-block;
+            margin: 0;
+            padding: 12px 20px;
+            background: linear-gradient(to bottom, #ff9100 0%, #ff6a00 100%);
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+            border: 1px solid #d35400;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+}
